@@ -1,3 +1,5 @@
+package tcp;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -5,7 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Se debe lanzar primero AppServidor y depués AppCliente
+ * Se debe lanzar primero tcp.AppServidor y depués tcp.AppCliente
  * Cuando reciba el primer mensaje devolverá el mismo mensaje añadiendole texto delante.
  */
 public class AppServidor {

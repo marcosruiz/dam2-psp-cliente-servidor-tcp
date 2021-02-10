@@ -1,10 +1,12 @@
+package tcp;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
 /**
- * Se debe lanzar primero AppServidor y depués AppCliente.
+ * Se debe lanzar primero tcp.AppServidor y depués tcp.AppCliente.
  * Enviará un mensaje al Servidor y esperará su contestación.
  */
 public class AppCliente {

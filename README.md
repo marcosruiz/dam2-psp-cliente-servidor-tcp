@@ -1,5 +1,8 @@
-# dam2-psp-cliente-servidor-tcp
-Ejemplo sencillo de cliente servidor usando Java.
+# dam2-psp-cliente-servidor
+
+## TCP
+
+Ejemplo sencillo de cliente servidor usando Java y sockets TCP.
 
 A continuación se muestra un diagrama de secuencia que muestra la interacción entre cliente y servidor.
 
@@ -23,3 +26,10 @@ A continuación se muestra un diagrama de secuencia que muestra la interacción 
      |                                      |
 
 ```
+
+## UDP
+
+Ejemplo sencillo de cliente servidor usando Java y sockets UDP.
+
+A continuación se muestra un diagrama de secuencia que muestra la interacción entre cliente y servidor.
+
