@@ -5,7 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- *
+ * Se debe lanzar primero AppServidor y depués AppCliente
+ * Cuando reciba el primer mensaje devolverá el mismo mensaje añadiendole texto delante.
  */
 public class AppServidor {
   static final int PUERTO = 4444;
@@ -14,7 +15,7 @@ public class AppServidor {
     ServerSocket servidor = new ServerSocket(PUERTO);
     System.out.println("Escuchando en el puerto " + PUERTO + " ...");
 
-    // Aceptamos la primera petición de conexión que venga
+    // Esperamos a la primera petición de conexión que venga y la aceptamos
     Socket socket = servidor.accept();
 
     // Obtenemos los canales de entrada de datos y de salida

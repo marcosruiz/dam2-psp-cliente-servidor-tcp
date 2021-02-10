@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * Esto es
+ * Se debe lanzar primero AppServidor y depués AppCliente.
+ * Enviará un mensaje al Servidor y esperará su contestación.
  */
 public class AppCliente {
   static final String IP = "localhost";
@@ -23,6 +24,7 @@ public class AppCliente {
     String mensajeDelServidor = entrada.readUTF();
     System.out.println("Recibido mensaje del servidor: " + mensajeDelServidor);
 
+    // Cerramos la conexión
     socket.close();
 
   }
