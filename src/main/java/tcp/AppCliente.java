@@ -15,11 +15,11 @@ public class AppCliente {
 
   public static void main(String[] args) throws IOException {
     // Obtenemos conexion e inicializamos
-    Socket socket = new Socket(IP, PUERTO);
+    Socket socketTcp = new Socket(IP, PUERTO);
 
     // Obtenemos los canales de entrada de datos y de salida
-    DataInputStream entrada = new DataInputStream(socket.getInputStream());
-    DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
+    DataInputStream entrada = new DataInputStream(socketTcp.getInputStream());
+    DataOutputStream salida = new DataOutputStream(socketTcp.getOutputStream());
 
     // Enviamos un mensaje y esperamos la respuesta del servidor
     salida.writeUTF("patata");
@@ -27,7 +27,7 @@ public class AppCliente {
     System.out.println("Recibido mensaje del servidor: " + mensajeDelServidor);
 
     // Cerramos la conexión
-    socket.close();
+    socketTcp.close();
 
   }
 }

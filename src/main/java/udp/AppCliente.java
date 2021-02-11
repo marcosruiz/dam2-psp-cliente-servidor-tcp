@@ -1,26 +1,41 @@
 package udp;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.MulticastSocket;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
 
 public class AppCliente {
-  static final String IP = "255.0.0.1";
+  static final String IP = "localhost";
   static final int PUERTO = 4444;
 
-  public static void main(String[] args) throws IOException {
-    MulticastSocket multicastSocket = new MulticastSocket(PUERTO);
-    InetAddress inetAddress = InetAddress.getByName(IP);
-    multicastSocket.joinGroup(inetAddress);
+  public static void main(String[] args) throws IOException, InterruptedException {
     String mensaje = "patata";
 
-    DatagramPacket datagramPacket = new DatagramPacket(mensaje.getBytes(), mensaje.length(), inetAddress, PUERTO);
+    // Creamos el socket que vamos a utilizar para enviar datos
+    DatagramSocket socketUdp = new DatagramSocket();
 
-    multicastSocket.send(datagramPacket);
+    // Preparamos el paquete de datos
+    InetAddress inetAddressServidor = InetAddress.getByName(IP);
+    DatagramPacket paqueteDeDatos = new DatagramPacket(mensaje.getBytes(), mensaje.length(), inetAddressServidor, PUERTO);
 
-    multicastSocket.close();
+    // Enviamos el paquete de datos
+    socketUdp.send(paqueteDeDatos);
 
+    // Recibimos el paquete de datos
+    // Para ello debemos definir el tamaño máximo de los mensajes.
+    byte[] bufer = new byte[1000];
+    DatagramPacket paqueteRespuesta =
+        new DatagramPacket(bufer, bufer.length);
+    socketUdp.receive(paqueteRespuesta);
+
+    // Mostramos el mensaje por pantalla
+    String mensajeRespuesta = new String(paqueteRespuesta.getData(), StandardCharsets.UTF_8);
+    System.out.println("Mensaje recibido: " + mensajeRespuesta);
+
+    // Cerramos la conexión
+    socketUdp.close();
   }
 }

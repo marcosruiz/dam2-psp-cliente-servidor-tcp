@@ -18,11 +18,11 @@ public class AppServidor {
     System.out.println("Escuchando en el puerto " + PUERTO + " ...");
 
     // Esperamos a la primera petición de conexión que venga y la aceptamos
-    Socket socket = servidor.accept();
+    Socket socketTcp = servidor.accept();
 
     // Obtenemos los canales de entrada de datos y de salida
-    DataInputStream entrada = new DataInputStream(socket.getInputStream());
-    DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
+    DataInputStream entrada = new DataInputStream(socketTcp.getInputStream());
+    DataOutputStream salida = new DataOutputStream(socketTcp.getOutputStream());
 
     // Leemos un mensaje y devolvemos el mismo mensaje
     String mensajeDelCliente = entrada.readUTF();
@@ -30,7 +30,7 @@ public class AppServidor {
     salida.writeUTF("Tú si que eres " + mensajeDelCliente);
 
     // Cerramos conexión
-    socket.close();
+    socketTcp.close();
     servidor.close();
   }
 }
