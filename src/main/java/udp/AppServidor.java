@@ -5,6 +5,10 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Se debe lanzar primero tcp.AppServidor y depués tcp.AppCliente
+ * Cuando reciba el primer mensaje devolverá el mismo mensaje añadiendole texto delante.
+ */
 public class AppServidor {
   static final int PUERTO = 4444;
 

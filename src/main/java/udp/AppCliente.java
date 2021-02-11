@@ -5,8 +5,11 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.TimeUnit;
 
+/**
+ * Se debe lanzar primero tcp.AppServidor y depués tcp.AppCliente.
+ * Enviará un mensaje al Servidor y esperará su contestación.
+ */
 public class AppCliente {
   static final String IP = "localhost";
   static final int PUERTO = 4444;
