@@ -1,4 +1,4 @@
-# dam2-psp-cliente-servidor
+# dam2-psp-ejemplo-cliente-servidor
 
 ## TCP
 
